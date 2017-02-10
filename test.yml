@@ -5,19 +5,13 @@
   become: yes
   become_user: root
   remote_user: "{{ server_user }}"
+  
   vars:
     - update_apt_cache: yes
+      
   vars_files:
     - env_vars/base.yml
     - env_vars/{{ env }}.yml
     
   tasks:
     - include: apt-sources.yml
-
-  roles:
-    - base
-    - certbot
-    - rabbitmq
-    - web
-    - celery
-    - nginx

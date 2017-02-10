@@ -1,0 +1,8 @@
+
+# overwrite the sources list
+- copy:
+    src: ./files/apt-sources-list.txt
+    dest: /etc/apt/sources.list
+    owner: root
+    group: root
+    mode: 0644
