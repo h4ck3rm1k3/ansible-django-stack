@@ -1,6 +1,27 @@
 ansible-django-stack
 ====================
 
+# TLDR
+
+## create inventory
+
+    [all:vars]
+    env=development
+    ansible_connection=ssh 
+    ansible_ssh_user=root
+
+    [webservers]
+    www.fqdn.com
+
+    [dbservers]
+	www.fqdn.com
+
+## certbot
+
+In `roles/certbot/defaults/main.yml`, override the `certbot_admin_email` variable.
+
+# Intro
+
 Ansible Playbook designed for environments running a Django app.  It can install and configure these applications that are commonly used in production Django deployments:
 
 - Nginx
@@ -64,41 +85,6 @@ The main things to note are the locations of the `manage.py` and `wsgi.py` files
 
 Also, if your app needs additional system packages installed, you can add them in `roles/web/tasks/install_additional_packages.yml`.
 
-I set some default values in the `env_vars` based on my open-source app, [YouTube Audio Downloader](https://github.com/jcalazan/youtube-audio-dl), so all you really have to do is type in this one command in the project root:
-
-```
-vagrant up
-```
-
-Wait a few minutes for the magic to happen.  Access the app by going to this URL: http://192.168.33.15
-
-Yup, exactly, you just provisioned a completely new server and deployed an entire Django stack in 5 minutes with _two words_ :).
-
-### Additional vagrant commands
-
-**SSH to the box**
-
-```
-vagrant ssh
-```
-
-**Re-provision the box to apply the changes you made to the Ansible configuration**
-
-```
-vagrant provision
-```
-
-**Reboot the box**
-
-```
-vagrant reload
-```
-
-**Shutdown the box**
-
-```
-vagrant halt
-```
 
 ## Security
 

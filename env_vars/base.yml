@@ -1,9 +1,9 @@
 ---
 
-git_repo: https://github.com/jcalazan/youtube-audio-dl.git
+git_repo: https://github.com/h4ck3rm1k3/introspector.git
 
-project_name: youtube-audio-dl
-application_name: youtubeadl
+project_name: introspector
+application_name: introspector
 
 ssl_crt: |
   -----BEGIN CERTIFICATE-----
